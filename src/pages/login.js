@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/login.css'
 import { Form, Input, Button } from 'element-react';
 
-class Login extends React.Component {
+export default class Login extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -63,7 +63,7 @@ class Login extends React.Component {
         e.preventDefault()
         this.refs.form.validate(valid => {
             if (valid) {
-                
+                this.props.history.push('/home')
             } else {
                 return false
             }
@@ -127,4 +127,3 @@ class Login extends React.Component {
         )
     }
 }
-export default Login

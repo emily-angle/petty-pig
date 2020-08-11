@@ -1,8 +1,6 @@
 import React from 'react';
-export default class Home extends React.Component {
-    render() {
-        return (
-            <div> 1</div >
-        )
-    }
+export default function Home() {
+    return (
+        <div>主页</div>
+    )
 }
