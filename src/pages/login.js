@@ -1,7 +1,8 @@
 import React from 'react';
 import '../styles/login.css'
 import { Form, Input, Button } from 'element-react';
-class Login extends React.Component {
+
+export default class Login extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -47,7 +48,7 @@ class Login extends React.Component {
                         validator: (rule, value, callback) => {
                             if (value === '') {
                                 callback(new Error('请输入验证码'))
-                            } else if (value.toUpperCase() !== document.getElementById('checkCode').innerHTML) {
+                            } else if (value.toUpperCase() !== document.getElementById('checkCode').innerHTML.toUpperCase()) {
                                 callback(new Error('验证码输入有误'))
                             } else {
                                 callback()
@@ -62,7 +63,7 @@ class Login extends React.Component {
         e.preventDefault()
         this.refs.form.validate(valid => {
             if (valid) {
-                console.log('submit')
+                this.props.history.push('/home')
             } else {
                 return false
             }
@@ -126,4 +127,3 @@ class Login extends React.Component {
         )
     }
 }
-export default Login
